@@ -6,7 +6,7 @@ const   express     = require("express"),
         app         = express(),
         bodyParser  = express.urlencoded({extended: true});
 
-mongoose.connect("mongodb://mongoadmin:Admin123@ds045157.mlab.com:45157/yelpcampramon", {useNewUrlParser: true});
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 
 app.set("view engine", "ejs");
 app.use(bodyParser);
