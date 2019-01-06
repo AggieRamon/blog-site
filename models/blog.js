@@ -5,6 +5,7 @@ let blogSchema = new mongoose.Schema({
     author: String,
     title: String,
     body: String,
+    image: String,
     dateCreated: {type: Date, Default: Date.now}
 })
 

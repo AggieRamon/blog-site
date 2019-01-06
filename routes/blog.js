@@ -1,20 +1,29 @@
 // Require appropriate packages
 const   express     = require("express"),
-        fs          = require("fs-sync")
+        Blog        = require("../models/blog.js"),
         app         = express(),
         router      = express.Router();
 
 router.get("/", function(req, res){
-    res.render("index");
-})
+    Blog.find({}, function(err, blogs){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("index", {blogs: blogs});
+        }
+    });
+});
 
-router.get("/:post", function(req, res){
-    if(fs.exists("views/posts/" + req.params.post + ".ejs")){
-        res.render("posts/" + req.params.post);
-    }
-    else {
-        res.send("error");
-    }
-})
+router.get("/:id", function(req, res){
+    Blog.findById(req.params.id, function(err, blog){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("blog", {blog: blog});
+        }
+    });
+});
 
 module.exports = router;
