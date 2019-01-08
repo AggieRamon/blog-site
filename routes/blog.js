@@ -18,7 +18,7 @@ router.get("/", function(req, res){
 router.get("/:id", function(req, res){
     Blog.findById(req.params.id, function(err, blog){
         if(err || !blog){
-            console.log(err);
+            res.sendStatus(404);
         }
         else{
             res.render("blog", {blog: blog});
