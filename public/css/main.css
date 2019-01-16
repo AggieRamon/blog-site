@@ -1,5 +1,6 @@
 body {
     background-color: rgb(229,235,255);
+    font-family: 'Mukta', sans-serif;
 }
 #footer {
     margin-top: 20px;
@@ -25,4 +26,14 @@ p + img {
 
 #main-index-page .card {
     margin-bottom: 50px;
+}
+
+#first-par {
+    margin-top: 20px;
+
+}
+
+#about-body {
+    padding-left:1.5rem;
+    font-size: 1.5rem
 }
